@@ -23,6 +23,9 @@ import logoImg from '../../assets/logo.svg';
 import { useAuth } from '../../hooks/auth';
 import api from '../../services/api';
 
+const avatarPlaceHolder =
+  'https://attatchments-gobarber.s3.us-east-2.amazonaws.com/avatar.png';
+
 interface MonthAvailabilityItem {
   day: number;
   available: boolean;
@@ -139,7 +142,7 @@ const Dashboard: React.FC = () => {
         <HeaderContent>
           <img src={logoImg} alt="GoBarber" />
           <Profile>
-            <img src={user.avatar_url} alt={user.name} />
+            <img src={user.avatar_url || avatarPlaceHolder} alt={user.name} />
             <div>
               <span>Bem-vindo,</span>
               <Link to="/profile">
@@ -167,7 +170,7 @@ const Dashboard: React.FC = () => {
               <strong>Agendamento a seguir</strong>
               <div>
                 <img
-                  src={nextAppointment.user.avatar_url}
+                  src={nextAppointment.user.avatar_url || avatarPlaceHolder}
                   alt={nextAppointment.user.name}
                 />
                 <strong>{nextAppointment?.user.name}</strong>
@@ -194,7 +197,7 @@ const Dashboard: React.FC = () => {
 
                 <div>
                   <img
-                    src={appointment.user.avatar_url}
+                    src={appointment.user.avatar_url || avatarPlaceHolder}
                     alt={appointment.user.name}
                   />
                   <strong>{appointment.user.name}</strong>
@@ -218,7 +221,7 @@ const Dashboard: React.FC = () => {
 
                 <div>
                   <img
-                    src={appointment.user.avatar_url}
+                    src={appointment.user.avatar_url || avatarPlaceHolder}
                     alt={appointment.user.name}
                   />
                   <strong>{appointment.user.name}</strong>
